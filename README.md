@@ -45,7 +45,12 @@
 
 
    We need to setup Git Credentials in your AWS IAM.
+   
+   <br>
+   
    Go to IAM console
+
+<br>
 
    Click on Users in the left-hand menu, and then click on your user name.
 
@@ -93,7 +98,10 @@ Under security credentials, scroll down and come to 'HTTPS Git credentials for A
 
 
    Use those credentials in your local and then clone the repository from CodeCommit
-In Code Commit, Go inside your repository that you created in above steps, in      right-hand side click on 'Clone URL' and choose 'Clone HTTPS'.
+
+<br>
+
+In Code Commit, Go inside your repository that you created in above steps, in right-hand side click on 'Clone URL' and choose 'Clone HTTPS'.
 
 <br>
 
@@ -105,11 +113,18 @@ In Code Commit, Go inside your repository that you created in above steps, in   
 
 
 Open a terminal on your local machine.
+
+<br>
+
 Navigate to the directory where you want to clone the repository.
+
+<br>
 
   Run the following command:
    
     git clone <your-codecommit-repo-clone-https-url>
+
+<br>
 
 You will be prompted to enter your Git credentials. Enter the username and password that you downloaded earlier.
 
@@ -150,7 +165,9 @@ Now we have set up a CodeCommit repository and cloned it on your local machine u
 <br>
 
 #### Add a new file from local and commit to your local branch
+
 <br>
+
 Create a new file in the local repository directory.
 
 <br>
@@ -194,6 +211,9 @@ Commit the changes to your local branch using the following command:
 
 
 Push the local changes to CodeCommit repository.
+
+<br>
+
 Push the changes from your local branch to the CodeCommit repository using the following command:
 
     git push origin master
@@ -209,6 +229,8 @@ Push the changes from your local branch to the CodeCommit repository using the f
 
 
 Verify that the changes have been pushed to the CodeCommit repository:
+
+<br>
 
 Go to the code commit repository that you created earlier, you should see the new file and content of file listed in the repository's files.
 
@@ -229,7 +251,9 @@ AWS CodeBuild is a fully managed build service in the cloud. CodeBuild compiles 
 <br>
 
 ### Step 1:
+
 <br>
+
 ### Create build project:
 
 <br>
@@ -245,6 +269,8 @@ Go to the CodeBuild service. Click the "Create build project" button.
 
 
 Fill in the details of your build project, including the project name, source provider (CodeCommit), repository, and branch.
+
+<br>
     
 In source section, select source provider AWS CodeCommit, select Repository that you created earlier and select branch master.
 
@@ -275,29 +301,13 @@ In Environment section, choose operating system, runtime ad image.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
 ### Step: 02
 
 <br>
 
 Add buildspec.yaml file to CodeCommit Repository and complete the build process.
+
+<br>
 
 Create a Buildspec file to build the file using an nginx server.
 
@@ -307,22 +317,27 @@ Create a Buildspec file to build the file using an nginx server.
 
 <br>
 
-
-
- 
-
-
 Here's what each step of the build does:
+
+<br>
 
 **version**: 0.2 specifies the version of the Buildspec syntax we're using.
 
 **phases** contains the build phases for our project.
 
+<br>
+
 **install**: Installs nginx on the build environment using the apt-get package manager.
+
+<br>
 
 **build**: Copies the index.html file to the default web root directory for nginx.
 
+<br>
+
 **post_build**: Performs any additional configuration for nginx, if necessary.
+
+<br>
 
 **artifacts**: Specifies the location of the index.html file to be included in the build artifact.
 
@@ -479,18 +494,6 @@ Here is an output of index.html file.
 
 
 
-
-
-
-
-
-
-
-
-
- 
-
-
 ### What is CodeDeploy?
 
 <br>
@@ -521,13 +524,23 @@ The application specification file (AppSpec file) is a YAML -formatted or JSON-f
 
 The appspec.yaml file is a configuration file that defines how the deployment should proceed. It specifies the deployment process, including which files should be deployed, where they should be deployed, and any scripts or hooks that should be executed during the deployment.
 
+<br>
+
 The appspec.yaml file typically includes the following sections:
+
+<br>
 
 **version**: This section specifies the version of the AppSpec file format being used.
 
+<br>
+
 **os**: This section specifies the operating system of the target instances.
 
+<br>
+
 **files**: This section specifies the source and destination locations of the files to be deployed.
+
+<br>
 
 **hooks**: This section specifies any scripts or hooks that should be executed during the deployment, such as scripts to stop and start the application.
 
@@ -541,6 +554,9 @@ The AppSpec file must be located in the root directory of the application source
 ### Create a CodeDeploy application:
 
 In CodeDeploy, go to Applications and click on 'Create application'.
+
+<br>
+
 Select compute platform 'EC2/on premises' and click on 'Create application'.
 
 <br>
@@ -677,7 +693,7 @@ Run the script using the command bash install.sh
 
 <br>
 
-### Add appspec.yaml file to CodeCommit Repository and complete the deployment process.
+#### Add appspec.yaml file to CodeCommit Repository and complete the deployment process.
 Create an appspec.yaml file:
 
 <br>
@@ -746,7 +762,7 @@ Now files are stored in s3 bucket.
 
 
 
-Create deployment:
+#### Create deployment:
 
 <br>
 
@@ -913,6 +929,7 @@ Click "Next."
 
  ![image](https://github.com/virajmate7776/CICD-On-AWS/assets/117629972/704fe3a4-8a57-4b66-b09f-fa98f53227bc)
 
+<br>
 
 Under "Build provider," choose "AWS CodeBuild."
 
